@@ -187,6 +187,7 @@ int main(int, char* [])
 				break;
 			}
 		}
+		std::cout << "Created and deleted 1000 images." << std::endl;
 		std::cout << std::endl;
 	}
 	return EXIT_SUCCESS;

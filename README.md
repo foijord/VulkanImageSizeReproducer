@@ -44,7 +44,7 @@ vkCreateImage returned VK_ERROR_OUT_OF_DEVICE_MEMORY
 ```
 
 ## Creating and deleting many large VkImages eventually fails ##
-When creating a VkImage of of extent 1024 x 1024 x 1024 and deleting it, vkCreateImage returns VK_ERROR_OUT_OF_DEVICE_MEMORY after many iterations.
+When creating a VkImage of of extent 1024 x 1024 x 1024 and deleting it, vkCreateImage returns VK_ERROR_OUT_OF_DEVICE_MEMORY after many iterations. This only happens on a RTX Quadro 8000 (Fermi). It succeeds on an RTX A5000 laptop GPU, and an Intel GPU.
 
 ## Build ##
 ### Prerequisites ###
@@ -60,6 +60,19 @@ Open a Developer PowerShell for Visual Studio 2022. Create a Build folder inside
 PS C:\code\VulkanImageSizeReproducer\Build> cmake.exe ..
 PS C:\code\VulkanImageSizeReproducer\Build> MSBuild.exe .\VulkanImageSizeReproducer.sln
 PS C:\code\VulkanImageSizeReproducer\Build> .\Debug\VulkanImageMemoryLeakReproducer.exe
+```
+
+Output from Laptop:
+```
+Creating device: NVIDIA RTX A5000 Laptop GPU
+NVIDIA Driver version: 517.40.0.0
+Creating image with extent: { 1024, 1024, 1024 }
+Created and deleted 1000 images.
+
+Creating device: Intel(R) UHD Graphics
+Intel Driver version: 100.533
+Creating image with extent: { 1024, 1024, 1024 }
+Created and deleted 1000 images.
 ```
 
 Output from Desktop:
