@@ -44,7 +44,7 @@ vkCreateImage returned VK_ERROR_OUT_OF_DEVICE_MEMORY
 ```
 
 ## Creating and deleting many large VkImages eventually fails ##
-When creating a VkImage of of extent 1024 x 1024 x 1024 and deleting it, vkCreateImage returns VK_ERROR_OUT_OF_DEVICE_MEMORY after many iterations. This only happens on a RTX Quadro 8000 (Fermi). It succeeds on an RTX A5000 laptop GPU, and an Intel GPU.
+When creating a VkImage of of extent 1024 x 1024 x 1024 and deleting it, vkCreateImage returns VK_ERROR_OUT_OF_DEVICE_MEMORY after many iterations. This only happens on a RTX Quadro 8000 (Turing). It succeeds on an RTX A5000 laptop GPU, and an Intel GPU.
 
 ## Build ##
 ### Prerequisites ###
