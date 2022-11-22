@@ -31,7 +31,9 @@ int main(int, char* [])
 	std::vector<const char*> instance_layers{
 		"VK_LAYER_KHRONOS_validation"
 	};
-	std::vector<const char*> instance_extensions{};
+	std::vector<const char*> instance_extensions{
+		VK_KHR_GET_PHYSICAL_DEVICE_PROPERTIES_2_EXTENSION_NAME
+	};
 
 	VkInstanceCreateInfo instanceCreateInfo{
 		.sType = VK_STRUCTURE_TYPE_INSTANCE_CREATE_INFO,
@@ -106,12 +108,20 @@ int main(int, char* [])
 				((physicalDeviceProperties.driverVersion >> 6) & 0x0ff) << "." <<
 				((physicalDeviceProperties.driverVersion) & 0x003f) << std::endl;
 		}
+#ifdef _WIN32
+		// INTEL version scheme (only on Windows)
+		else if (physicalDeviceProperties.vendorID == 0x8086) {
+			std::cout << "Intel Driver version: " <<
+				(physicalDeviceProperties.driverVersion >> 14) << "." <<
+				(physicalDeviceProperties.driverVersion & 0x3ff) << std::endl;
+		}
+#endif
 		else {
 			// standard Vulkan versioning
 			std::cout << "Driver version: " <<
 				(physicalDeviceProperties.driverVersion >> 22) << "." <<
 				((physicalDeviceProperties.driverVersion >> 12) & 0x3ff) << "." <<
-				(physicalDeviceProperties.driverVersion & 0xfff);
+				(physicalDeviceProperties.driverVersion & 0xfff) << std::endl;
 		}
 
 		VkDevice device;
@@ -169,11 +179,12 @@ int main(int, char* [])
 		VkImage image;
 		auto result = vkCreateImage(device, &imageCreateInfo, nullptr, &image);
 		if (result == VK_SUCCESS) {
-			std::cout << "vkCreateImage succeeded";
+			std::cout << "vkCreateImage returned VK_SUCCESS";
 		}
 		if (result == VK_ERROR_OUT_OF_DEVICE_MEMORY) {
-			std::cerr << "vkCreateImage returned VK_ERROR_OUT_OF_DEVICE_MEMORY";
+			std::cerr << "vkCreateImage returned VK_ERROR_OUT_OF_DEVICE_MEMORY" << std::endl;
 		}
+		std::cout << std::endl;
 	}
 	return EXIT_SUCCESS;
 }
