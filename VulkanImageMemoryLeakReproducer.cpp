@@ -171,9 +171,10 @@ int main(int, char* [])
 			imageCreateInfo.extent.height << ", " <<
 			imageCreateInfo.extent.depth << " }" << std::endl;
 
+		VkResult result;
 		for (size_t count = 0; count < 1000; count++) {
 			VkImage image;
-			auto result = vkCreateImage(device, &imageCreateInfo, nullptr, &image);
+			result = vkCreateImage(device, &imageCreateInfo, nullptr, &image);
 			if (result == VK_SUCCESS) {
 				vkDestroyImage(device, image, nullptr);
 			}
@@ -187,7 +188,9 @@ int main(int, char* [])
 				break;
 			}
 		}
-		std::cout << "Created and deleted 1000 images." << std::endl;
+		if (result == VK_SUCCESS) {
+			std::cout << "Created and deleted 1000 images." << std::endl;
+		}
 		std::cout << std::endl;
 	}
 	return EXIT_SUCCESS;
