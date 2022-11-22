@@ -7,7 +7,7 @@ When creating a VkImage of the maximum extent reported by vkGetPhysicalDeviceIma
 - Microsoft Visual Studio 2022 (64-bit) Version 17.3.2 or later with the "Desktop development with C++" Workload installed.
 - NVIDIA GPU, Pascal or more recent
 - NVIDIA graphics driver installed (version 526.67)
-- Vulkan SDK installed (1.3.231)
+- Vulkan SDK installed (1.3.231, with Volk)
 
 Open a Developer PowerShell for Visual Studio 2022. Create a Build folder inside this repo, build and execute:
 
@@ -52,7 +52,7 @@ When creating a VkImage of of extent 1024 x 1024 x 1024 and deleting it, vkCreat
 - Microsoft Visual Studio 2022 (64-bit) Version 17.3.2 or later with the "Desktop development with C++" Workload installed.
 - NVIDIA GPU, Pascal or more recent
 - NVIDIA graphics driver installed (version 526.67)
-- Vulkan SDK installed (1.3.231)
+- Vulkan SDK installed (1.3.231, with Volk)
 
 Open a Developer PowerShell for Visual Studio 2022. Create a Build folder inside this repo, build and execute:
 
