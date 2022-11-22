@@ -9,4 +9,5 @@ find_package(Vulkan REQUIRED)
 include_directories(${Vulkan_INCLUDE_DIRS})
 link_directories($ENV{VULKAN_SDK}/Lib)
 
-add_executable(VulkanImageSizeReproducer main.cpp)
+add_executable(VulkanImageMaxSizeReproducer VulkanImageMaxSizeReproducer.cpp)
+add_executable(VulkanImageMemoryLeakReproducer VulkanImageMemoryLeakReproducer.cpp)
