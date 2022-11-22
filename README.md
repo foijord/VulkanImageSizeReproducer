@@ -74,7 +74,19 @@ Intel Driver version: 100.533
 Creating image with extent: { 1024, 1024, 1024 }
 Created and deleted 1000 images.
 ```
+Output from Laptop after updating NVIDIA driver to 526.67:
+```
+Creating device: NVIDIA RTX A5000 Laptop GPU
+NVIDIA Driver version: 526.67.0.0
+Creating image with extent: { 1024, 1024, 1024 }
+vkCreateImage returned VK_ERROR_OUT_OF_DEVICE_MEMORY after 883 iterations
+Created and deleted 1000 images.
 
+Creating device: Intel(R) UHD Graphics
+Intel Driver version: 100.533
+Creating image with extent: { 1024, 1024, 1024 }
+Created and deleted 1000 images.
+```
 Output from Desktop:
 ```
 Creating device: Quadro RTX 8000
