@@ -150,6 +150,9 @@ int main(int, char* [])
 			imageFormatProperties.maxExtent.height << ", " <<
 			imageFormatProperties.maxExtent.depth << " }" << std::endl;
 
+		std::cout << "VkIimageFormatProperties.maxResourceSize = " <<
+			imageFormatProperties.maxResourceSize << std::endl;
+
 		std::cout << "VkPhysicalDeviceFormatProperties2.properties.limits.maxImageDimension3D = " <<
 			physicalDeviceProperties2.properties.limits.maxImageDimension3D << std::endl;
 
@@ -171,7 +174,7 @@ int main(int, char* [])
 			.initialLayout = VK_IMAGE_LAYOUT_UNDEFINED,
 		};
 
-		std::cout << "Creating image with extent: { " <<
+		std::cout << "Creating image with extent = { " <<
 			imageCreateInfo.extent.width << ", " <<
 			imageCreateInfo.extent.height << ", " <<
 			imageCreateInfo.extent.depth << " }" << std::endl;

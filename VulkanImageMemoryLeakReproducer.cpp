@@ -154,7 +154,7 @@ int main(int, char* [])
 			.flags = flags,
 			.imageType = imageType,
 			.format = format,
-			.extent = extent,
+			.extent = { 1024, 1024, 1024 },
 			.mipLevels = 1,
 			.arrayLayers = 1,
 			.samples = VK_SAMPLE_COUNT_1_BIT,
