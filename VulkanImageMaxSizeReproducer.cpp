@@ -145,16 +145,19 @@ int main(int, char* [])
 		VkPhysicalDeviceProperties2 physicalDeviceProperties2{ VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PROPERTIES_2_KHR };
 		vkGetPhysicalDeviceProperties2(physicalDevice, &physicalDeviceProperties2);
 
-		std::cout << "VkImageFormatPropeties.maxExtent = { " <<
+		std::cout << "VkImageFormatProperties.maxExtent = { " <<
 			imageFormatProperties.maxExtent.width << ", " <<
 			imageFormatProperties.maxExtent.height << ", " <<
 			imageFormatProperties.maxExtent.depth << " }" << std::endl;
 
-		std::cout << "VkIimageFormatProperties.maxResourceSize = " <<
+		std::cout << "VkImageFormatProperties.maxResourceSize = " <<
 			imageFormatProperties.maxResourceSize << std::endl;
 
-		std::cout << "VkPhysicalDeviceFormatProperties2.properties.limits.maxImageDimension3D = " <<
+		std::cout << "VkPhysicalDeviceProperties2.properties.limits.maxImageDimension3D = " <<
 			physicalDeviceProperties2.properties.limits.maxImageDimension3D << std::endl;
+
+		std::cout << "VkPhysicalDeviceProperties2.properties.limits.sparseAddressSpaceSize = " <<
+			physicalDeviceProperties2.properties.limits.sparseAddressSpaceSize << std::endl;
 
 		VkImageCreateInfo imageCreateInfo{
 			.sType = VK_STRUCTURE_TYPE_IMAGE_CREATE_INFO,
