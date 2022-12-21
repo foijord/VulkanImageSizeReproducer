@@ -38,9 +38,9 @@ Output from reproducer:
 ```
 Creating device: NVIDIA RTX A5000 Laptop GPU
 NVIDIA Driver version: driver version 517.40.0.0
-VkImageFormatPropeties.maxExtent = { 16384, 16384, 16384 }
-VkIimageFormatProperties.maxResourceSize = 18446744073709551615
-VkPhysicalDeviceFormatProperties2.properties.limits.maxImageDimension3D = 16384
+VkImageFormatProperties.maxExtent = { 16384, 16384, 16384 }
+VkImageFormatProperties.maxResourceSize = 18446744073709551615
+VkPhysicalDeviceProperties2.properties.limits.maxImageDimension3D = 16384
 Creating image with extent = { 16384, 16384, 16384 }
 vkCreateImage returned VK_ERROR_OUT_OF_DEVICE_MEMORY
 
@@ -48,16 +48,16 @@ Creating device: Quadro RTX 8000
 NVIDIA Driver version: 526.67.0.0
 VkImageFormatPropeties.maxExtent = { 16384, 16384, 16384 }
 VkIimageFormatProperties.maxResourceSize = 18446744073709551615
-VkPhysicalDeviceFormatProperties2.properties.limits.maxImageDimension3D = 16384
+VkPhysicalDeviceProperties2.properties.limits.maxImageDimension3D = 16384
 Creating image with extent = { 16384, 16384, 16384 }
 vkCreateImage returned VK_ERROR_OUT_OF_DEVICE_MEMORY
 
 Creating device: Intel(R) UHD Graphics
 Intel Driver version: 100.533
-imageFormatProperties.maxExtent = { 16384, 16384, 2048 }
-VkIimageFormatProperties.maxResourceSize = 824634769408
+VkImageFormatProperties.maxExtent = { 16384, 16384, 2048 }
+VkImageFormatProperties.maxResourceSize = 824634769408
 Creating image with extent = { 16384, 16384, 2048 }
-VkPhysicalDeviceFormatProperties2.properties.limits.maxImageDimension3D = 2048
+VkPhysicalDeviceProperties2.properties.limits.maxImageDimension3D = 2048
 vkCreateImage returned VK_SUCCESS
 ```
 ## Second issue: repeatedly creating and deleting VkImages eventually fails ##
