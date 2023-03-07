@@ -55,12 +55,13 @@ Creating image with extent = { 16384, 16384, 2048 }
 vkCreateImage returned VK_SUCCESS
 
 Creating device: Quadro RTX 8000
-NVIDIA Driver version: 526.67.0.0
-VkImageFormatPropeties.maxExtent = { 16384, 16384, 16384 }
-VkIimageFormatProperties.maxResourceSize = 18446744073709551615
+NVIDIA Driver version: 528.2.0.0
+VkImageFormatProperties.maxExtent = { 16384, 16384, 16384 }
+VkImageFormatProperties.maxResourceSize = 18446744073709551615
 VkPhysicalDeviceProperties2.properties.limits.maxImageDimension3D = 16384
-Creating image with extent = { 16384, 16384, 16384 }
-vkCreateImage returned VK_ERROR_OUT_OF_DEVICE_MEMORY
+VkPhysicalDeviceProperties2.properties.limits.sparseAddressSpaceSize = 1099511627775
+Creating image with extent = { 16384, 16384, 3500 }
+vkCreateImage returned VK_SUCCESS
 ```
 ## Second issue: repeatedly creating and deleting VkImages eventually fails ##
 ```
