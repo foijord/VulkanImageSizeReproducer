@@ -159,6 +159,9 @@ int main(int, char* [])
 		std::cout << "VkPhysicalDeviceProperties2.properties.limits.sparseAddressSpaceSize = " <<
 			physicalDeviceProperties2.properties.limits.sparseAddressSpaceSize << std::endl;
 
+		// don't break NVIDIA which reports 16k here
+		imageFormatProperties.maxExtent.depth = std::min(3500u, imageFormatProperties.maxExtent.depth);
+
 		VkImageCreateInfo imageCreateInfo{
 			.sType = VK_STRUCTURE_TYPE_IMAGE_CREATE_INFO,
 			.pNext = nullptr,
@@ -185,7 +188,7 @@ int main(int, char* [])
 		VkImage image;
 		auto result = vkCreateImage(device, &imageCreateInfo, nullptr, &image);
 		if (result == VK_SUCCESS) {
-			std::cout << "vkCreateImage returned VK_SUCCESS";
+			std::cout << "vkCreateImage returned VK_SUCCESS" << std::endl;
 		}
 		if (result == VK_ERROR_OUT_OF_DEVICE_MEMORY) {
 			std::cerr << "vkCreateImage returned VK_ERROR_OUT_OF_DEVICE_MEMORY" << std::endl;
